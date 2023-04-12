@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav{
+        background-color: deepskyblue;
+        font-size: 500px;
+        height: 500px;
+        width: 500px;
+        margin-left: 30%;
+    }
+    .calculator{
+        margin-top: 100px;
+    }
+    .calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: black;
+  max-height: 700px;
+  box-shadow: 100px;
+
+}
+
+#result {
+  grid-column: 1 / span 4;
+  padding: 10px;
+  font-size: 24px;
+  text-align: right;
+}
+
+button {
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgb(208, 10, 234);
+}
+.calculator :hover{
+    
+    background-color: rgb(239, 239, 9);
+    border-radius: 45%;
+}
+
+
+</style>
+<body>
+    <nav>
+    <div class="calculator">
+        <input type="text" id="result" disabled>
+        <button onclick="clearResult()">Clear</button>
+        <button onclick="deleteDigit()">Del</button>
+        <button onclick="addOperator('**')">^</button>
+        <button onclick="addDigit('.')">.</button>
+        
+       
+        <button onclick="addDigit('1')">1</button>
+        <button onclick="addDigit('2')">2</button>
+        <button onclick="addDigit('3')">3</button>
+        <button onclick="addDigit('4')">4</button>
+        <button onclick="addDigit('5')">5</button>
+        <button onclick="addDigit('6')">6</button>
+        <button onclick="addDigit('7')">7</button>
+        <button onclick="addDigit('8')">8</button>
+        <button onclick="addDigit('9')">9</button>
+        <button onclick="addOperator('-')">-</button>
+        <button onclick="addOperator('*')">*</button>
+        
+       
+        <button onclick="addDigit('0')">0</button>
+        <button onclick="calculateResult()" style="color: magenta; background-color: palegreen;">=</button>
+
+      </div>
+      </nav>
+      <script>
+        let result = document.getElementById('result');
+
+function addDigit(digit) {
+  result.value += digit;
+}
+
+function addOperator(operator) {
+  result.value += operator;
+}
+
+function clearResult() {
+  result.value = ' ';
+}
+
+function deleteDigit() {
+  result.value = result.value.slice(0, -1);
+}
+
+function calculateResult() {
+  result.value = eval(result.value);
+}
+
+      </script>
+</body>
+</html>
